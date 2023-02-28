@@ -1,0 +1,117 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/panels/protos/Panel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/ThreadMetalPlate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/VarnishedPine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/solids/protos/SolidBox.proto"
+
+PROTO OfficeTable [
+    field SFVec3f    translation  0 0 0
+    field SFRotation rotation     0 0 1 0
+]
+{
+Transform {
+  translation IS translation
+  rotation IS rotation
+  children [
+	SolidBox {
+	  translation 0.275 0 1.22
+	  rotation 0 1 0 4.692820414042842e-06
+	  name "shelf1"
+	  size 0.4 2.5 0.03
+	  appearance VarnishedPine {
+		textureTransform TextureTransform {
+		  scale 10 10
+		}
+	  }
+	}
+	SolidBox {
+	  translation 0.325 0 1.63
+	  rotation 0 1 0 4.692820414042842e-06
+	  name "shelf2"
+	  size 0.3 2.5 0.03
+	  appearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+		textureTransform TextureTransform {
+		  scale 10 10
+		}
+	  }
+	}
+	SolidBox {
+	  translation 0.5 -1.225 0.865
+	  rotation 0 1 0 0
+	  name "rod1"
+	  size 0.05 0.05 0.65
+	  appearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+	SolidBox {
+	  translation 0.5 -0.005 0.865
+	  name "rod2"
+	  size 0.05 0.05 0.65
+	  appearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+	SolidBox {
+	  translation 0.5 1.225 0.865
+	  name "rod3"
+	  size 0.05 0.05 0.65
+	  appearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+	SolidBox {
+	  translation 0 -1.2 0.165
+	  name "footsupport1"
+	  size 0.75 0.1 0.05
+	  appearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+	SolidBox {
+	  translation 0 1.2 0.165
+	  name "footsupport2"
+	  size 0.75 0.1 0.05
+	  appearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+	SolidBox {
+	  translation 0 0 0.165
+	  name "footsupport3"
+	  size 0.1 2.3 0.05
+	  appearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+	Panel {
+	  translation 0.5 -1.25 1.19
+	  size 0.05 2.5 0.6
+	  appearance ThreadMetalPlate {
+		type "square"
+		colorOverride 0 0 0
+		textureTransform TextureTransform {
+		  rotation 0.785
+		  scale 2.5 2.5
+		}
+		IBLStrength 3.2
+	  }
+	  borderAppearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+	Table {
+	  rotation 0 1 0 0
+	  name "office_table"
+	  size 0.95 2.5 0.74
+	  legAppearance BrushedAluminium {
+		colorOverride 0.376471 0.376471 0.376471
+	  }
+	}
+  ]
+}
+}

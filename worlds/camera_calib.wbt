@@ -1,0 +1,477 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/apartment_structure/protos/Door.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/VarnishedPine.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/ScratchedPaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/RoughPolymer.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/RedBricks.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/MattePaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/GlossyPaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/cabinet/protos/Cabinet.proto"
+EXTERNPROTO "../protos/OfficeTable.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/apartment_structure/protos/Ceiling.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.35891647399258814 -0.8147518549069526 -0.4553662038649859 4.7455234715340655
+  position -0.43301343197236347 -0.1341465933702726 1.8324601716456397
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF WALLS Group {
+  children [
+    Wall {
+      translation 4.77 -3.08 0
+      size 1.15 0.95 3.3
+      appearance RedBricks {
+        textureTransform TextureTransform {
+          scale 2 2.5
+        }
+      }
+    }
+    Wall {
+      translation -5.4 3.6625 0
+      rotation 0 0 1 -1.5707953071795862
+      name "outer_wall"
+      size 0.2 21.87 3.3
+      appearance DEF WINDOW PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "window_texture.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 1.02 0.5
+        }
+      }
+    }
+    Wall {
+      translation -6.6 -3.6624 0
+      rotation 0 0 1 -1.5707953071795862
+      name "inner_wall_left"
+      size 0.2 19.47 3.3
+    }
+    Wall {
+      translation 4.83 -3.6624 0
+      rotation 0 0 1 -1.5707953071795862
+      name "inner_wall_right"
+      size 0.2 1.4 3.3
+    }
+    Door {
+      translation 3.635 -3.6624 0
+      rotation 0 0 1 1.5708
+      size 0.2 1 3.3
+    }
+    Wall {
+      translation -16.235 0 0
+      name "left_wall"
+      size 0.2 7.125 3.3
+      appearance USE WINDOW
+    }
+    Wall {
+      translation 5.435 0 0
+      name "right_wall"
+      size 0.2 7.125 3.3
+    }
+    Floor {
+      translation -5.4 0 0
+      size 21.47 7.125
+      appearance ScratchedPaint {
+        textureTransform TextureTransform {
+          rotation 1.5
+          scale 0.4 0.4
+        }
+        metalScratch FALSE
+      }
+    }
+    Ceiling {
+      translation -5.4 0 3.3
+      size 21.5 7.3
+    }
+  ]
+}
+DEF OFFICE Group {
+  children [
+    DEF TABLES Group {
+      children [
+        OfficeTable {
+          translation 4.8 0.37 0
+        }
+        OfficeTable {
+          translation 3.08 2.22 0
+          rotation 0 0 1 -1.57
+        }
+        OfficeTable {
+          translation 1.79 -2.3 0
+        }
+        OfficeTable {
+          translation -0.12 2.24 0
+          rotation 0 0 1 -1.57
+        }
+        OfficeTable {
+          translation -2.63 2.24 0
+          rotation 0 0 1 -1.57
+        }
+        OfficeTable {
+          translation -2.07 -2.3 0
+          rotation 0 0 1 3.14159
+        }
+        OfficeTable {
+          translation -3.12 -2.3 0
+        }
+      ]
+    }
+    Table {
+      translation 4.85 2.36 0
+      rotation 0 0 1 -1.5707953071795862
+      name "robotarm_table"
+      size 1.4 1 0.74
+      legAppearance MattePaint {
+        baseColor 0.584314 0.584314 0.584314
+      }
+    }
+    Table {
+      translation 1.62 -0.530002 0
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "robotarm_table_2"
+      size 1 1.4 0.74
+      legAppearance MattePaint {
+        baseColor 0.584314 0.584314 0.584314
+      }
+    }
+    Table {
+      translation 4.86 -1.63 0
+      rotation 0 0 1 3.14159
+      name "soldering_table"
+      size 0.8 1.5 0.74
+      trayAppearance RoughPolymer {
+        baseColor 0.682353 0.682353 0.682353
+      }
+      legAppearance MattePaint {
+        baseColor 0.478431 0.478431 0.478431
+      }
+    }
+    Table {
+      translation 2.67 -2.71 0
+      rotation 0 0 1 1.01503e-06
+      name "drill_table"
+      size 0.6 1.7 0.7
+      trayAppearance VarnishedPine {
+        colorOverride 0.505882 0.423529 0.364706
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 0.0235294 0.207843 0.717647
+      }
+    }
+    Table {
+      translation 2.67 -1.58 0
+      rotation 0 0 1 1.01503e-06
+      name "toolbox_1"
+      size 0.6 0.45 0.7
+      feetSize 0.3 0.25
+      trayAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 1 0.333333 0
+      }
+    }
+    Table {
+      translation -3.06 -0.810003 0
+      rotation 0 0 1 1.01503e-06
+      name "toolbox_2"
+      size 0.75 0.45 0.7
+      feetSize 0.38 0.25
+      trayAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 1 0 0
+      }
+    }
+  ]
+}
+DEF WORKSHOP Group {
+  children [
+    Cabinet {
+      translation -12 -1.17 0
+      rotation 0 0 1 3.14159
+      rowsHeights [
+        0.4, 0.4, 0.4, 0.4
+      ]
+      columnsWidths [
+        4.7
+      ]
+      layout [
+        "Shelf (1,2,1,0)"
+        "Shelf (1,3,1,0)"
+        "Shelf (1,4,1,0)"
+      ]
+      handle NULL
+      primaryAppearance RoughPolymer {
+        baseColor 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 3 3
+        }
+      }
+      secondaryAppearance NULL
+    }
+    Table {
+      translation -8.86 0.9 0
+      rotation 0 1 0 0
+      name "workshop_mid_table_1"
+      size 1 1.75 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -8.86 -0.85 0
+      rotation 0 1 0 0
+      name "workshop_mid_table_2"
+      size 1 1.75 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -6.29 1.06 0
+      rotation 0 1 0 0
+      name "workshop_side_table_1_1"
+      size 0.91 2.1 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -6.29 -0.84 0
+      rotation 0 1 0 0
+      name "workshop_side_table_1_2"
+      size 0.91 1.7 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -6.29 -2.54 0
+      rotation 0 1 0 0
+      name "workshop_side_table_1_3"
+      size 0.91 1.7 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -7.8 -2.93 0
+      rotation 0 0 1 -1.5707953071795862
+      name "workshop_side_table_2_1"
+      size 0.91 2.1 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -9.9 -2.93 0
+      rotation 0 0 1 -1.5707953071795862
+      name "workshop_side_table_2_2"
+      size 0.91 2.1 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -11.41 -2.54 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "workshop_side_table_3_1"
+      size 0.91 1.7 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -11.41 -0.84 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "workshop_side_table_3_2"
+      size 0.91 1.7 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -11.41 1.06 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "workshop_side_table_3_3"
+      size 0.91 2.1 0.74
+      legAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 4 5
+        }
+      }
+    }
+    Table {
+      translation -6.41 3.3 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "Cabinet 1"
+      size 1.2 0.52 2.03
+      feetSize 0.6 0.27
+      trayAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 1 0.556863 0.0470588
+      }
+    }
+    Table {
+      translation -7.63 3.3 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "Cabinet 2"
+      size 1.2 0.52 2.03
+      feetSize 0.6 0.27
+      trayAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 1 0.556863 0.0470588
+      }
+    }
+    Table {
+      translation -9.86 3.3 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "Cabinet 3"
+      size 1.2 0.52 2.03
+      feetSize 0.6 0.27
+      trayAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 1 0.556863 0.0470588
+      }
+    }
+    Table {
+      translation -12.51 3.3 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "Cabinet 4"
+      size 1.2 0.52 2.03
+      feetSize 0.6 0.27
+      trayAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 1 0.556863 0.0470588
+      }
+    }
+    Table {
+      translation -13.73 3.3 0
+      rotation 0 0 1 1.0150305250839343e-06
+      name "Cabinet 5"
+      size 1.2 0.52 2.03
+      feetSize 0.6 0.27
+      trayAppearance VarnishedPine {
+        colorOverride 0.203922 0.203922 0.203922
+        textureTransform TextureTransform {
+          scale 10 10
+        }
+      }
+      legAppearance RoughPolymer {
+        baseColor 1 0.556863 0.0470588
+      }
+    }
+    Wall {
+      translation -5.635 -0.73 0
+      name "Cabinets"
+      size 0.39 5.67 2.4
+      appearance GlossyPaint {
+        baseColor 1 0.556863 0.0470588
+      }
+    }
+  ]
+}
+DEF CHESSBOARD Transform {
+  translation 0 0 0.6
+  rotation 1 0 0 -3.14159
+  children [
+    Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/LongerVision/OpenCV_Examples/master/markers/pattern_chessboard.png"
+          ]
+        }
+      }
+      geometry Plane {
+        size 0.14 0.0989
+      }
+    }
+  ]
+}
+DEF TESTCAM Robot {
+  translation 0 0 0.25
+  children [
+    Camera {
+      rotation 0 1 0 -1.5707996938995747
+      fieldOfView 1.2
+      width 720
+      height 720
+    }
+  ]
+  name "supervisor"
+  controller "calib_supervisor"
+  supervisor TRUE
+}
