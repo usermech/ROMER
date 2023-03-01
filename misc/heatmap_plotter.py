@@ -1,5 +1,7 @@
 import csv
 import numpy as np
+from matplotlib import use
+use('agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 import ast
@@ -23,9 +25,11 @@ with open("../controllers/heatmap_supervisor/grid_errors.csv") as f:
 # get the lowest error item from each one.
 lowesterr_array=[pos[0][0] if len(pos)>0 else np.nan for pos in dat]
 heatmap(lowesterr_array)
+plt.savefig("lowest_error.png")
 
 ## avg. error
 avgerr_array=[np.mean([tags[0] for tags in pos]) for pos in dat]
 heatmap(avgerr_array)
+plt.savefig("avg_error.png")
 
 print("python done!!!")
