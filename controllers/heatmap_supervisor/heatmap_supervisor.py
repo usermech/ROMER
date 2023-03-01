@@ -7,7 +7,8 @@ from controller import Supervisor
 import cv2
 import numpy as np
 from itertools import product
-import yaml 
+import yaml
+import csv
 
 XLIM = [-16.235, 5.435]
 YLIM = [-3.6625, 3.6625]
@@ -63,8 +64,6 @@ init = True
 # - perform simulation steps until Webots is stopping the controller
 grid_errors = []
 while supervisor.step(timestep) != -1:
-    if step == GRID_NUM-1:
-        break
     img = camera.getImageArray()
     img = np.asarray(img, dtype=np.uint8)
     img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
@@ -94,20 +93,15 @@ while supervisor.step(timestep) != -1:
         tag_errors.sort(key=lambda x: x[0])
         print(tag_errors[0])
     grid_errors.append(tag_errors)
-    step += 1    
+    if step == 107:
+        break
+    step += 1
     robot_translation_field.setSFVec3f([grid[step,0], grid[step,1], 0.01])
-    # Read the sensors:
-    # Enter here functions to read sensor data, like:
-    #  val = ds.getValue()
-
-    # Process sensor data here.
-
-    # Enter here functions to send actuator commands, like:
-    #  motor.setPosition(10.0)
-    pass
 
 # Enter here exit cleanup code.
 # save the grid errors to a csv file
-with open('grid_errors.csv', 'w') as f:
-    for i in grid_errors:
-        f.write(f"{i} \n")
+with open('grid_errors.csv', 'w', newline='') as f:
+    csvw=csv.writer(f)
+    csvw.writerows(grid_errors)
+#    for i in grid_errors:
+#        f.write(f"{i} \n")

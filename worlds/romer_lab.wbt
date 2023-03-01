@@ -19,8 +19,10 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.2868595839030185 -0.7859907670257457 -0.5476587379685154 5.107534691577036
-  position -1.906600581298608 -1.7748519532774913 3.2440474095330782
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position -15.325288925358059 -1.4171252760171489 15.908218966666613
+  follow "supervisor"
+  followType "Mounted Shot"
 }
 TexturedBackground {
 }
