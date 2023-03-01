@@ -14,5 +14,5 @@ proc webotscbk {txt} {
 global pCount
 set h1 [bgExec "$webotspath --batch --stdout --stderr --minimize --no-rendering --mode=fast ../worlds/romer_lab.wbt" {webotscbk} pCount]
 vwait pCount
-set h2 [bgExec "ipython heatmap_plotter.py" {puts} pCount]
+set h2 [bgExec "python heatmap_plotter.py" {puts} pCount]
 vwait pCount
