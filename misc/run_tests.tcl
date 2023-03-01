@@ -1,4 +1,5 @@
 source ./bgexec.tcl
+set webotspath FILLTHISIN
 
 proc webotscbk {txt} {
 	global h1
@@ -11,7 +12,7 @@ proc webotscbk {txt} {
 }
 
 global pCount
-#set h1 [bgExec "C:/Users/Anil/AppData/Local/Programs/Webots/msys64/mingw64/bin/webots.exe --batch --stdout --stderr --minimize --no-rendering --mode=fast ../worlds/romer_lab.wbt" {webotscbk} pCount]
-#vwait pCount
+set h1 [bgExec "$webotspath --batch --stdout --stderr --minimize --no-rendering --mode=fast ../worlds/romer_lab.wbt" {webotscbk} pCount]
+vwait pCount
 set h2 [bgExec "ipython heatmap_plotter.py" {puts} pCount]
 vwait pCount
