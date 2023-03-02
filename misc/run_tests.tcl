@@ -23,7 +23,7 @@ proc webotscbk {txt} {
 
 
 foreach tagcount $tagcountlist grid $gridlist {
-	puts "NEW TEST: $tagcount tags with grid: $grid"
+	puts "\033\[1;32mNEW TEST: $tagcount tags with grid: $grid\033\[0m"
 	global pCount
 	# setup ceiling markers
 	set h1 [bgExec "python ceiling_gen.py --type DICT_4X4_100 -d $tagcount \"$grid\"" {puts} pCount]
@@ -33,7 +33,7 @@ foreach tagcount $tagcountlist grid $gridlist {
 	set h2 [bgExec "$webotspath --batch --stdout --stderr --minimize --no-rendering --mode=fast ../worlds/romer_lab.wbt" {webotscbk} pCount]
 	vwait pCount
 	# plot heatmaps
-	set h3 [bgExec "python heatmap_plotter.py" {puts} pCount]
+	set h3 [bgExec "python heatmap_plotter.py $tagcount $grid" {puts} pCount]
 	vwait pCount
 }
-puts "Tests completed."
+puts "\033\[1;32mTests completed.\033\[0m"

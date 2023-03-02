@@ -132,7 +132,9 @@ def write_coords(text, coordfile):
     write generated coords to a text file.
     '''
     with open(coordfile, 'w') as f:
+        f.seek(0)
         f.write(str(text))
+        f.truncate()
 
 if __name__=="__main__":
     #cli stuff
@@ -162,7 +164,6 @@ if __name__=="__main__":
 ''')
     
     parser.add_argument('count', type=int, help="Number of tags to place on the ceiling.")
-    
     parser.add_argument('grid_size', type=lambda s: [int(item) for item in s.split(' ')], help="The row-column counts of the grid to lay the tags on. Format is \"x y\"")
     parser.add_argument('--room', type=lambda s: [float(item) for item in s.split(' ')], default=ROOM_COORDS, help=f"The room's corner points. Format is \"x1 y1 x2 y2\". Defaults to {ROOM_COORDS}.")
     parser.add_argument('--type', choices=ARUCO_DICT, default=TAG_TYPE, help=f"Marker type to use. Defaults to {TAG_TYPE}.")
