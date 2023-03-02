@@ -10,9 +10,10 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 PROTO OfficeTable [
     field SFVec3f    translation  0 0 0
     field SFRotation rotation     0 0 1 0
+    field SFString   name         "OfficeTable"
 ]
 {
-Transform {
+Solid {
   translation IS translation
   rotation IS rotation
   children [
@@ -113,5 +114,6 @@ Transform {
 	  }
 	}
   ]
+  name IS name
 }
 }

@@ -40,9 +40,9 @@ DEF WALLS Group {
       }
     }
     Wall {
-      translation -5.4 3.6625 0
+      translation -5.4 3.6625 -100
       rotation 0 0 1 -1.5707953071795862
-      name "outer_wall"
+      name "outer_wall_old"
       size 0.2 21.87 3.3
       appearance DEF WINDOW PBRAppearance {
         baseColorMap ImageTexture {
@@ -52,6 +52,22 @@ DEF WALLS Group {
         }
         textureTransform TextureTransform {
           scale 1.02 0.5
+        }
+      }
+    }
+    Floor {
+      translation -5.4 3.56 1.65
+      rotation 1 0 0 1.5707996938995747
+      name "outer_wall"
+      size 21.9 3.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "window_texture.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 0.025 0.09
         }
       }
     }
@@ -73,13 +89,31 @@ DEF WALLS Group {
       size 0.2 1 3.3
     }
     Wall {
-      translation -16.235 0 0
-      name "left_wall"
+      translation -16.235 0 -100
+      name "left_wall_old"
       size 0.2 7.125 3.3
       appearance USE WINDOW
     }
+    Floor {
+      translation -16.1 0 1.65
+      rotation 0 1 0 1.5707996938995747
+      name "left_wall"
+      size 3.3 7.13
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "window_texture.jpg"
+          ]
+        }
+        textureTransform TextureTransform {
+          rotation -1.57
+          scale 0.031 0.087
+        }
+      }
+    }
     Wall {
       translation 5.435 0 0
+      rotation 0 1 0 0
       name "right_wall"
       size 0.2 7.125 3.3
     }
@@ -106,28 +140,35 @@ DEF OFFICE Group {
       children [
         OfficeTable {
           translation 4.8 0.37 0
+          name "OfficeTable1"
         }
         OfficeTable {
           translation 3.08 2.22 0
           rotation 0 0 1 -1.57
+          name "OfficeTable2"
         }
         OfficeTable {
           translation 1.79 -2.3 0
+          name "OfficeTable3"
         }
         OfficeTable {
           translation -0.12 2.24 0
           rotation 0 0 1 -1.57
+          name "OfficeTable4"
         }
         OfficeTable {
           translation -2.63 2.24 0
           rotation 0 0 1 -1.57
+          name "OfficeTable5"
         }
         OfficeTable {
           translation -2.07 -2.3 0
           rotation 0 0 1 3.14159
+          name "OfficeTable6"
         }
         OfficeTable {
           translation -3.12 -2.3 0
+          name "OfficeTable7"
         }
       ]
     }
@@ -472,7 +513,7 @@ DEF TESTCAM Robot {
 DEF CEILING_TAGS Group {
   children [
     Ceiling {
-      translation 3.4690909090909097 2.196 3.299
+      translation 1.826666666666667 1.83 3.299
       name "tag0"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -488,7 +529,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 3.4690909090909097 0.7320000000000002 3.299
+      translation 1.826666666666667 0.0 3.299
       name "tag1"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -504,7 +545,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 3.4690909090909097 -0.7319999999999993 3.299
+      translation 1.826666666666667 -1.83 3.299
       name "tag2"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -520,7 +561,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 3.4690909090909097 -2.1959999999999997 3.299
+      translation -1.7866666666666662 1.83 3.299
       name "tag3"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -536,7 +577,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 1.4981818181818185 2.196 3.299
+      translation -1.7866666666666662 0.0 3.299
       name "tag4"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -552,7 +593,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 1.4981818181818185 0.7320000000000002 3.299
+      translation -1.7866666666666662 -1.83 3.299
       name "tag5"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -568,7 +609,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 1.4981818181818185 -0.7319999999999993 3.299
+      translation -5.3999999999999995 1.83 3.299
       name "tag6"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -584,7 +625,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 1.4981818181818185 -2.1959999999999997 3.299
+      translation -5.3999999999999995 0.0 3.299
       name "tag7"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -600,7 +641,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -0.47272727272727266 2.196 3.299
+      translation -5.3999999999999995 -1.83 3.299
       name "tag8"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -616,7 +657,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -0.47272727272727266 0.7320000000000002 3.299
+      translation -9.013333333333332 1.83 3.299
       name "tag9"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -632,7 +673,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -0.47272727272727266 -0.7319999999999993 3.299
+      translation -9.013333333333332 0.0 3.299
       name "tag10"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -648,7 +689,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -0.47272727272727266 -2.1959999999999997 3.299
+      translation -9.013333333333332 -1.83 3.299
       name "tag11"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -664,7 +705,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -2.4436363636363634 2.196 3.299
+      translation -12.626666666666665 1.83 3.299
       name "tag12"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -680,7 +721,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -2.4436363636363634 0.7320000000000002 3.299
+      translation -12.626666666666665 0.0 3.299
       name "tag13"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -696,7 +737,7 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -2.4436363636363634 -0.7319999999999993 3.299
+      translation -12.626666666666665 -1.83 3.299
       name "tag14"
       size 0.18 0.18
       appearance PBRAppearance {
@@ -709,406 +750,6 @@ DEF CEILING_TAGS Group {
           filtering 0
         }
         name "tag14_texture"
-      }
-    }
-    Ceiling {
-      translation -2.4436363636363634 -2.1959999999999997 3.299
-      name "tag15"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_15.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag15_texture"
-      }
-    }
-    Ceiling {
-      translation -4.414545454545455 2.196 3.299
-      name "tag16"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_16.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag16_texture"
-      }
-    }
-    Ceiling {
-      translation -4.414545454545455 0.7320000000000002 3.299
-      name "tag17"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_17.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag17_texture"
-      }
-    }
-    Ceiling {
-      translation -4.414545454545455 -0.7319999999999993 3.299
-      name "tag18"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_18.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag18_texture"
-      }
-    }
-    Ceiling {
-      translation -4.414545454545455 -2.1959999999999997 3.299
-      name "tag19"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_19.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag19_texture"
-      }
-    }
-    Ceiling {
-      translation -6.385454545454546 2.196 3.299
-      name "tag20"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_20.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag20_texture"
-      }
-    }
-    Ceiling {
-      translation -6.385454545454546 0.7320000000000002 3.299
-      name "tag21"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_21.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag21_texture"
-      }
-    }
-    Ceiling {
-      translation -6.385454545454546 -0.7319999999999993 3.299
-      name "tag22"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_22.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag22_texture"
-      }
-    }
-    Ceiling {
-      translation -6.385454545454546 -2.1959999999999997 3.299
-      name "tag23"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_23.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag23_texture"
-      }
-    }
-    Ceiling {
-      translation -8.356363636363636 2.196 3.299
-      name "tag24"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_24.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag24_texture"
-      }
-    }
-    Ceiling {
-      translation -8.356363636363636 0.7320000000000002 3.299
-      name "tag25"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_25.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag25_texture"
-      }
-    }
-    Ceiling {
-      translation -8.356363636363636 -0.7319999999999993 3.299
-      name "tag26"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_26.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag26_texture"
-      }
-    }
-    Ceiling {
-      translation -8.356363636363636 -2.1959999999999997 3.299
-      name "tag27"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_27.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag27_texture"
-      }
-    }
-    Ceiling {
-      translation -10.327272727272728 2.196 3.299
-      name "tag28"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_28.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag28_texture"
-      }
-    }
-    Ceiling {
-      translation -10.327272727272728 0.7320000000000002 3.299
-      name "tag29"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_29.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag29_texture"
-      }
-    }
-    Ceiling {
-      translation -10.327272727272728 -0.7319999999999993 3.299
-      name "tag30"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_30.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag30_texture"
-      }
-    }
-    Ceiling {
-      translation -10.327272727272728 -2.1959999999999997 3.299
-      name "tag31"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_31.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag31_texture"
-      }
-    }
-    Ceiling {
-      translation -12.298181818181817 2.196 3.299
-      name "tag32"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_32.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag32_texture"
-      }
-    }
-    Ceiling {
-      translation -12.298181818181817 0.7320000000000002 3.299
-      name "tag33"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_33.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag33_texture"
-      }
-    }
-    Ceiling {
-      translation -12.298181818181817 -0.7319999999999993 3.299
-      name "tag34"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_34.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag34_texture"
-      }
-    }
-    Ceiling {
-      translation -12.298181818181817 -2.1959999999999997 3.299
-      name "tag35"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_35.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag35_texture"
-      }
-    }
-    Ceiling {
-      translation -14.26909090909091 2.196 3.299
-      name "tag36"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_36.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag36_texture"
-      }
-    }
-    Ceiling {
-      translation -14.26909090909091 0.7320000000000002 3.299
-      name "tag37"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_37.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag37_texture"
-      }
-    }
-    Ceiling {
-      translation -14.26909090909091 -0.7319999999999993 3.299
-      name "tag38"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_38.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag38_texture"
-      }
-    }
-    Ceiling {
-      translation -14.26909090909091 -2.1959999999999997 3.299
-      name "tag39"
-      size 0.18 0.18
-      appearance PBRAppearance {
-        baseColorMap ImageTexture {
-          url [
-            "../misc/tags/marker_39.jpg"
-          ]
-          repeatS FALSE
-          repeatT FALSE
-          filtering 0
-        }
-        name "tag39_texture"
       }
     }
   ]
