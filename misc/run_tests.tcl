@@ -1,7 +1,7 @@
 # bgexec.tcl from http://chiselapp.com/user/MHo/repository/tcl-modules/dir?ci=6fca3679027cf4fb6340680f4bdad1649aec88e8&name=bgexec
 source ./bgexec.tcl
 
-set webotspath FILLTHISIN
+set webotspath REPLACE_WITH_WEBOTS_PATH
 set tagcountlist {15 25}
 set gridlist {
 	{5 3}
@@ -12,9 +12,10 @@ set gridlist {
 proc webotscbk {txt} {
 	global h2
 	if {[string match "*INFO: 'heatmap_supervisor' controller exited successfully.*" $txt]} {
+		puts $txt
 		puts -nonewline "\033\[0m"
 		puts "Ending Webots process."
-		exec [auto_execok taskkill] /F /PID [pid $h2]
+		after 1000 {exec [auto_execok taskkill] /F /PID [pid $h2]}
 	} else {
 		puts $txt
 	}
@@ -22,10 +23,10 @@ proc webotscbk {txt} {
 
 
 foreach tagcount $tagcountlist grid $gridlist {
-	puts "NEW TEST: $tagcount with grid: $grid"
+	puts "NEW TEST: $tagcount tags with grid: $grid"
 	global pCount
 	# setup ceiling markers
-	set h1 [bgExec "python ceiling_gen.py -d $tagcount \"$grid\"" {puts} pCount]
+	set h1 [bgExec "python ceiling_gen.py --type DICT_4X4_100 -d $tagcount \"$grid\"" {puts} pCount]
 	vwait pCount
 	# run sim
 	puts -nonewline "\033\[1;33m"
@@ -35,3 +36,4 @@ foreach tagcount $tagcountlist grid $gridlist {
 	set h3 [bgExec "python heatmap_plotter.py" {puts} pCount]
 	vwait pCount
 }
+puts "Tests completed."
