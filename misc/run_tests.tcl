@@ -1,7 +1,7 @@
 # bgexec.tcl from http://chiselapp.com/user/MHo/repository/tcl-modules/dir?ci=6fca3679027cf4fb6340680f4bdad1649aec88e8&name=bgexec
 source ./bgexec.tcl
 
-set webotspath D:/Webots/msys64/mingw64/bin/webotsw.exe
+set webotspath REPLACEWITHWEBOTSPATH
 set tagcountlist {15 25 50 70 100 108}
 set gridlist {
 	{5 3}
