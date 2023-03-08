@@ -10,6 +10,8 @@ TAG_SIZE=18 #tag edge length in centimeters
 ROOM_COORDS=[5.44, 3.66, -16.24, -3.66]
 WORLDFILE="../worlds/romer_lab.wbt"
 COORDFILE="tagcoords.txt"
+SETFILE = "tagsettings.txt"
+
 
 ARUCO_DICT = {
 	"DICT_4X4_50": cv2.aruco.DICT_4X4_50,
@@ -136,6 +138,14 @@ def write_coords(text, coordfile):
         f.write(str(text))
         f.truncate()
 
+def write_settings(text, settingsfile):
+    '''
+    write generated settings to a text file.
+    '''
+    with open(settingsfile, 'w') as f:
+        f.seek(0)
+        f.write(str(text))
+        f.truncate()
 if __name__=="__main__":
     #cli stuff
     parser=argparse.ArgumentParser(
@@ -189,6 +199,7 @@ if __name__=="__main__":
     if not args.p:
         add_to_map(text, args.map, args.d)
         write_coords(tag_coords, args.out)
+        write_settings([args.type, args.size], SETFILE)
     else:
         print(f"add to .wbt file:\n{text}")
         print(f"tag coordinates:\n{tag_coords}")

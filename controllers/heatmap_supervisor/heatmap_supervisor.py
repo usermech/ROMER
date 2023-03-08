@@ -9,10 +9,34 @@ import numpy as np
 from itertools import product
 import yaml
 import csv
+import ast
+
+
 
 XLIM = [-16.235, 5.435]
 YLIM = [-3.6625, 3.6625]
 GRID_NUM = 100
+
+ARUCO_DICT = {
+	"DICT_4X4_50": cv2.aruco.DICT_4X4_50,
+	"DICT_4X4_100": cv2.aruco.DICT_4X4_100,
+	"DICT_4X4_250": cv2.aruco.DICT_4X4_250,
+	"DICT_4X4_1000": cv2.aruco.DICT_4X4_1000,
+	"DICT_5X5_50": cv2.aruco.DICT_5X5_50,
+	"DICT_5X5_100": cv2.aruco.DICT_5X5_100,
+	"DICT_5X5_250": cv2.aruco.DICT_5X5_250,
+	"DICT_5X5_1000": cv2.aruco.DICT_5X5_1000,
+	"DICT_6X6_50": cv2.aruco.DICT_6X6_50,
+	"DICT_6X6_100": cv2.aruco.DICT_6X6_100,
+	"DICT_6X6_250": cv2.aruco.DICT_6X6_250,
+	"DICT_6X6_1000": cv2.aruco.DICT_6X6_1000,
+	"DICT_7X7_50": cv2.aruco.DICT_7X7_50,
+	"DICT_7X7_100": cv2.aruco.DICT_7X7_100,
+	"DICT_7X7_250": cv2.aruco.DICT_7X7_250,
+	"DICT_7X7_1000": cv2.aruco.DICT_7X7_1000,
+	"DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL}
+
+
 # find the ratio of the limits to each other
 inc = np.sqrt((XLIM[1] - XLIM[0]) * (YLIM[1] - YLIM[0])/GRID_NUM)
 # create an array of the grid points starting from XLIM[0] increasing by inc not including XLIM[0]
@@ -20,6 +44,19 @@ x = np.arange(XLIM[0], XLIM[1], inc)
 x = x + np.array([(XLIM[1]-x[-1])*0.5])
 y = np.arange(YLIM[0], YLIM[1], inc)
 y = y + np.array([(YLIM[1]-y[-1])*0.5])
+
+# load tag cooardinates from txt file
+with open('../../misc/tagcoords.txt', 'r') as f:
+    tag_coords = f.readlines()
+tag_coords = tag_coords[0].split(",")
+tag_coords = [i.replace("[","") for i in tag_coords]
+tag_coords = [i.replace("]","") for i in tag_coords]
+tag_coords = np.array(tag_coords, dtype=np.float32)
+tag_coords = np.reshape(tag_coords, (-1,2))
+
+with open('../../misc/tagsettings.txt', 'r') as f:
+    tag_set = f.read()
+    tag_dict, tag_size = ast.literal_eval(tag_set)
 
 # create combinations of the grid points
 grid = np.array(list(product(x, y)))
@@ -41,20 +78,15 @@ camera.enable(timestep)
 #  ds = robot.getDevice('dsname')
 #  ds.enable(timestep)
 
-arucoDict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_4X4_100)
+arucoDict = cv2.aruco.Dictionary_get(ARUCO_DICT[tag_dict])
 with open('../calib_supervisor/calibration.yaml') as f:
     loadeddict = yaml.safe_load(f)
 
 matrix_coefficient = np.array(loadeddict.get('camera_matrix'))
 distortion_coefficient = np.array(loadeddict.get('dist_coeff'))
-# load tag cooardinates from txt file
-with open('../../misc/tagcoords.txt', 'r') as f:
-    tag_coords = f.readlines()
-tag_coords = tag_coords[0].split(",")
-tag_coords = [i.replace("[","") for i in tag_coords]
-tag_coords = [i.replace("]","") for i in tag_coords]
-tag_coords = np.array(tag_coords, dtype=np.float32)
-tag_coords = np.reshape(tag_coords, (-1,2))
+
+
+
 
 
 step = 0 
@@ -78,7 +110,7 @@ while supervisor.step(timestep) != -1:
     tag_errors = []
     if np.all(ids is not None):
         for i,id in enumerate(ids):
-            rvec, tvec, markerPoints = cv2.aruco.estimatePoseSingleMarkers(corners[i], 0.18, matrix_coefficient,
+            rvec, tvec, markerPoints = cv2.aruco.estimatePoseSingleMarkers(corners[i], tag_size*0.01, matrix_coefficient,
                                                                        distortion_coefficient)
             
             tvec[0][0][1] = -tvec[0][0][1]

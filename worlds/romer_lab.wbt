@@ -513,9 +513,9 @@ DEF TESTCAM Robot {
 DEF CEILING_TAGS Group {
   children [
     Ceiling {
-      translation 1.826666666666667 1.83 3.299
+      translation 3.4690909090909097 2.9945454545454546 3.299
       name "tag0"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -529,9 +529,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 1.826666666666667 0.0 3.299
+      translation 3.4690909090909097 2.329090909090909 3.299
       name "tag1"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -545,9 +545,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation 1.826666666666667 -1.83 3.299
+      translation 3.4690909090909097 1.6636363636363636 3.299
       name "tag2"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -561,9 +561,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -1.7866666666666662 1.83 3.299
+      translation 3.4690909090909097 0.9981818181818181 3.299
       name "tag3"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -577,9 +577,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -1.7866666666666662 0.0 3.299
+      translation 3.4690909090909097 0.33272727272727254 3.299
       name "tag4"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -593,9 +593,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -1.7866666666666662 -1.83 3.299
+      translation 3.4690909090909097 -0.332727272727273 3.299
       name "tag5"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -609,9 +609,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -5.3999999999999995 1.83 3.299
+      translation 3.4690909090909097 -0.9981818181818181 3.299
       name "tag6"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -625,9 +625,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -5.3999999999999995 0.0 3.299
+      translation 3.4690909090909097 -1.663636363636364 3.299
       name "tag7"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -641,9 +641,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -5.3999999999999995 -1.83 3.299
+      translation 3.4690909090909097 -2.32909090909091 3.299
       name "tag8"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -657,9 +657,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -9.013333333333332 1.83 3.299
+      translation 3.4690909090909097 -2.994545454545455 3.299
       name "tag9"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -673,9 +673,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -9.013333333333332 0.0 3.299
+      translation 1.4981818181818185 2.9945454545454546 3.299
       name "tag10"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -689,9 +689,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -9.013333333333332 -1.83 3.299
+      translation 1.4981818181818185 2.329090909090909 3.299
       name "tag11"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -705,9 +705,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -12.626666666666665 1.83 3.299
+      translation 1.4981818181818185 1.6636363636363636 3.299
       name "tag12"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -721,9 +721,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -12.626666666666665 0.0 3.299
+      translation 1.4981818181818185 0.9981818181818181 3.299
       name "tag13"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -737,9 +737,9 @@ DEF CEILING_TAGS Group {
       }
     }
     Ceiling {
-      translation -12.626666666666665 -1.83 3.299
+      translation 1.4981818181818185 0.33272727272727254 3.299
       name "tag14"
-      size 0.18 0.18
+      size 0.3 0.3
       appearance PBRAppearance {
         baseColorMap ImageTexture {
           url [
@@ -750,6 +750,1366 @@ DEF CEILING_TAGS Group {
           filtering 0
         }
         name "tag14_texture"
+      }
+    }
+    Ceiling {
+      translation 1.4981818181818185 -0.332727272727273 3.299
+      name "tag15"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_15.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag15_texture"
+      }
+    }
+    Ceiling {
+      translation 1.4981818181818185 -0.9981818181818181 3.299
+      name "tag16"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_16.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag16_texture"
+      }
+    }
+    Ceiling {
+      translation 1.4981818181818185 -1.663636363636364 3.299
+      name "tag17"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_17.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag17_texture"
+      }
+    }
+    Ceiling {
+      translation 1.4981818181818185 -2.32909090909091 3.299
+      name "tag18"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_18.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag18_texture"
+      }
+    }
+    Ceiling {
+      translation 1.4981818181818185 -2.994545454545455 3.299
+      name "tag19"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_19.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag19_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 2.9945454545454546 3.299
+      name "tag20"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_20.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag20_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 2.329090909090909 3.299
+      name "tag21"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_21.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag21_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 1.6636363636363636 3.299
+      name "tag22"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_22.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag22_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 0.9981818181818181 3.299
+      name "tag23"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_23.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag23_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 0.33272727272727254 3.299
+      name "tag24"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_24.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag24_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 -0.332727272727273 3.299
+      name "tag25"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_25.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag25_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 -0.9981818181818181 3.299
+      name "tag26"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_26.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag26_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 -1.663636363636364 3.299
+      name "tag27"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_27.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag27_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 -2.32909090909091 3.299
+      name "tag28"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_28.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag28_texture"
+      }
+    }
+    Ceiling {
+      translation -0.47272727272727266 -2.994545454545455 3.299
+      name "tag29"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_29.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag29_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 2.9945454545454546 3.299
+      name "tag30"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_30.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag30_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 2.329090909090909 3.299
+      name "tag31"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_31.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag31_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 1.6636363636363636 3.299
+      name "tag32"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_32.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag32_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 0.9981818181818181 3.299
+      name "tag33"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_33.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag33_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 0.33272727272727254 3.299
+      name "tag34"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_34.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag34_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 -0.332727272727273 3.299
+      name "tag35"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_35.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag35_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 -0.9981818181818181 3.299
+      name "tag36"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_36.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag36_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 -1.663636363636364 3.299
+      name "tag37"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_37.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag37_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 -2.32909090909091 3.299
+      name "tag38"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_38.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag38_texture"
+      }
+    }
+    Ceiling {
+      translation -2.4436363636363634 -2.994545454545455 3.299
+      name "tag39"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_39.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag39_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 2.9945454545454546 3.299
+      name "tag40"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_40.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag40_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 2.329090909090909 3.299
+      name "tag41"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_41.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag41_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 1.6636363636363636 3.299
+      name "tag42"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_42.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag42_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 0.9981818181818181 3.299
+      name "tag43"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_43.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag43_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 0.33272727272727254 3.299
+      name "tag44"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_44.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag44_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 -0.332727272727273 3.299
+      name "tag45"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_45.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag45_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 -0.9981818181818181 3.299
+      name "tag46"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_46.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag46_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 -1.663636363636364 3.299
+      name "tag47"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_47.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag47_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 -2.32909090909091 3.299
+      name "tag48"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_48.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag48_texture"
+      }
+    }
+    Ceiling {
+      translation -4.414545454545455 -2.994545454545455 3.299
+      name "tag49"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_49.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag49_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 2.9945454545454546 3.299
+      name "tag50"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_50.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag50_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 2.329090909090909 3.299
+      name "tag51"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_51.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag51_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 1.6636363636363636 3.299
+      name "tag52"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_52.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag52_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 0.9981818181818181 3.299
+      name "tag53"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_53.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag53_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 0.33272727272727254 3.299
+      name "tag54"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_54.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag54_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 -0.332727272727273 3.299
+      name "tag55"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_55.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag55_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 -0.9981818181818181 3.299
+      name "tag56"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_56.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag56_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 -1.663636363636364 3.299
+      name "tag57"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_57.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag57_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 -2.32909090909091 3.299
+      name "tag58"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_58.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag58_texture"
+      }
+    }
+    Ceiling {
+      translation -6.385454545454546 -2.994545454545455 3.299
+      name "tag59"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_59.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag59_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 2.9945454545454546 3.299
+      name "tag60"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_60.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag60_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 2.329090909090909 3.299
+      name "tag61"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_61.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag61_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 1.6636363636363636 3.299
+      name "tag62"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_62.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag62_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 0.9981818181818181 3.299
+      name "tag63"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_63.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag63_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 0.33272727272727254 3.299
+      name "tag64"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_64.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag64_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 -0.332727272727273 3.299
+      name "tag65"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_65.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag65_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 -0.9981818181818181 3.299
+      name "tag66"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_66.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag66_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 -1.663636363636364 3.299
+      name "tag67"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_67.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag67_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 -2.32909090909091 3.299
+      name "tag68"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_68.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag68_texture"
+      }
+    }
+    Ceiling {
+      translation -8.356363636363636 -2.994545454545455 3.299
+      name "tag69"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_69.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag69_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 2.9945454545454546 3.299
+      name "tag70"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_70.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag70_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 2.329090909090909 3.299
+      name "tag71"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_71.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag71_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 1.6636363636363636 3.299
+      name "tag72"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_72.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag72_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 0.9981818181818181 3.299
+      name "tag73"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_73.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag73_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 0.33272727272727254 3.299
+      name "tag74"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_74.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag74_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 -0.332727272727273 3.299
+      name "tag75"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_75.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag75_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 -0.9981818181818181 3.299
+      name "tag76"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_76.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag76_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 -1.663636363636364 3.299
+      name "tag77"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_77.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag77_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 -2.32909090909091 3.299
+      name "tag78"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_78.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag78_texture"
+      }
+    }
+    Ceiling {
+      translation -10.327272727272728 -2.994545454545455 3.299
+      name "tag79"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_79.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag79_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 2.9945454545454546 3.299
+      name "tag80"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_80.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag80_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 2.329090909090909 3.299
+      name "tag81"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_81.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag81_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 1.6636363636363636 3.299
+      name "tag82"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_82.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag82_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 0.9981818181818181 3.299
+      name "tag83"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_83.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag83_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 0.33272727272727254 3.299
+      name "tag84"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_84.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag84_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 -0.332727272727273 3.299
+      name "tag85"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_85.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag85_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 -0.9981818181818181 3.299
+      name "tag86"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_86.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag86_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 -1.663636363636364 3.299
+      name "tag87"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_87.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag87_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 -2.32909090909091 3.299
+      name "tag88"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_88.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag88_texture"
+      }
+    }
+    Ceiling {
+      translation -12.298181818181817 -2.994545454545455 3.299
+      name "tag89"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_89.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag89_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 2.9945454545454546 3.299
+      name "tag90"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_90.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag90_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 2.329090909090909 3.299
+      name "tag91"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_91.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag91_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 1.6636363636363636 3.299
+      name "tag92"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_92.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag92_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 0.9981818181818181 3.299
+      name "tag93"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_93.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag93_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 0.33272727272727254 3.299
+      name "tag94"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_94.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag94_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 -0.332727272727273 3.299
+      name "tag95"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_95.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag95_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 -0.9981818181818181 3.299
+      name "tag96"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_96.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag96_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 -1.663636363636364 3.299
+      name "tag97"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_97.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag97_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 -2.32909090909091 3.299
+      name "tag98"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_98.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag98_texture"
+      }
+    }
+    Ceiling {
+      translation -14.26909090909091 -2.994545454545455 3.299
+      name "tag99"
+      size 0.3 0.3
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "../misc/tags/marker_99.jpg"
+          ]
+          repeatS FALSE
+          repeatT FALSE
+          filtering 0
+        }
+        name "tag99_texture"
       }
     }
   ]
