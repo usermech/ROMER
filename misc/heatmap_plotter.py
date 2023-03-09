@@ -6,7 +6,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import ast
 import argparse
-from os import path, makedirs
+from os import path, makedirs, stat
+
+def savescore(score):
+	csv_headers=["TAGCOUNT","GRIDX","GRIDY","TAGSIZE","SCORE"]
+	with open('scores.csv', 'a', newline='') as f:
+		csvw=csv.writer(f)
+		
+		#write the column headers if the file is empty.
+		needs_header = stat('scores.csv').st_size == 0
+		if needs_header:
+			csvw.writerow(csv_headers)
+		
+		#add new round of scores
+		csvw.writerow([args.count, args.gridx, args.gridy, args.size, score])
 
 def heatmap(arr, title,ax,*args):
 	maxval = args[0] if len(args)>0 else 0.2
@@ -66,3 +79,11 @@ plt.savefig(f"results/tag{args.size}/{args.count}_{args.gridx}x{args.gridy}_avg_
 numtags_array=[len(pos) for pos in dat]
 heatmap(numtags_array, f"Number of Tags, {args.count} tags, {args.gridx}x{args.gridy} grid", None, max(numtags_array))
 plt.savefig(f"results/tag{args.size}/{args.count}_{args.gridx}x{args.gridy}_num_tags.png")
+
+## compute a score
+# for now, the average of all average errors, ignore nan
+score=np.nanmean(avgerr_array)
+# save to csv file
+savescore(score)
+# print score
+print(f"SCORE {score}")
