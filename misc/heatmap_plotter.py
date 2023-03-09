@@ -59,25 +59,25 @@ with open("../controllers/heatmap_supervisor/grid_errors.csv") as f:
 #Create a figure with 3 subplots
 fig, axs=plt.subplots(3, 1, figsize=(18, 12))
 lowesterr_array=[pos[0][0] if len(pos)>0 else np.nan for pos in dat]
-heatmap(lowesterr_array, f"Lowest Error, {args.count} tags, {args.gridx}x{args.gridy} grid", axs[0])
+heatmap(lowesterr_array, f"Lowest Error, {args.count} tags, {args.gridx}x{args.gridy} grid, {args.size} cm", axs[0])
 avgerr_array=[np.mean([tags[0] for tags in pos]) for pos in dat]
-heatmap(avgerr_array, f"Average Error, {args.count} tags, {args.gridx}x{args.gridy} grid", axs[1])
+heatmap(avgerr_array, f"Average Error, {args.count} tags, {args.gridx}x{args.gridy} grid, {args.size} cm", axs[1])
 numtags_array=[len(pos) for pos in dat]
-heatmap(numtags_array, f"Number of Tags, {args.count} tags, {args.gridx}x{args.gridy} grid", axs[2], max(numtags_array))
+heatmap(numtags_array, f"Number of Tags, {args.count} tags, {args.gridx}x{args.gridy} grid, {args.size} cm", axs[2], max(numtags_array))
 plt.savefig(f"results/tag{args.size}/subplot{args.count}_{args.gridx}x{args.gridy}_heatmap.png")
 
 ## lowest error
 # get the lowest error item from each one.
-heatmap(lowesterr_array, f"Lowest Error, {args.count} tags, {args.gridx}x{args.gridy} grid", None)
+heatmap(lowesterr_array, f"Lowest Error, {args.count} tags, {args.gridx}x{args.gridy} grid, {args.size} cm", None)
 plt.savefig(f"results/tag{args.size}/{args.count}_{args.gridx}x{args.gridy}_lowest_error.png")
 
 ## avg. error
-heatmap(avgerr_array, f"Average Error, {args.count} tags, {args.gridx}x{args.gridy} grid", None)
+heatmap(avgerr_array, f"Average Error, {args.count} tags, {args.gridx}x{args.gridy} grid, {args.size} cm", None)
 plt.savefig(f"results/tag{args.size}/{args.count}_{args.gridx}x{args.gridy}_avg_error.png")
 
 ## number of tags
 numtags_array=[len(pos) for pos in dat]
-heatmap(numtags_array, f"Number of Tags, {args.count} tags, {args.gridx}x{args.gridy} grid", None, max(numtags_array))
+heatmap(numtags_array, f"Number of Tags, {args.count} tags, {args.gridx}x{args.gridy} grid, {args.size} cm", None, max(numtags_array))
 plt.savefig(f"results/tag{args.size}/{args.count}_{args.gridx}x{args.gridy}_num_tags.png")
 
 ## compute a score
