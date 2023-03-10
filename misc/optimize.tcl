@@ -9,9 +9,9 @@ array set config {
 	tagsize 10
 }
 # format: min incr max
-set gridxlim {4 1 6}
-set gridylim {4 1 6}
-set tagsizelim {10 5 20}
+set gridxlim {4 1 25}
+set gridylim {4 1 25}
+set tagsizelim {10 2 30}
 
 set maxtags 100
 
@@ -54,24 +54,34 @@ proc simulate {tagsize tagcount grid} {
 	lappend times [expr {$tstop - $tstart}]
 }
 
+proc simulate_test {tagsize tagcount grid} {
+	global times scorelist config
+	
+	set tstart [clock seconds]
+	puts "\033\[1;32mNEW SIM: $tagcount tags with grid: $grid size: $tagsize\033\[0m"
+	set score [expr {double($tagsize)/$tagcount}]
+	set scorelist($score) [array get config]
+	set tstop [clock seconds]
+	lappend times [expr {$tstop - $tstart}]
+}
+
 # which axes to optimize over, and in which order
 set params {gridx gridy tagsize}
 
 foreach param $params {
 	# get relevant limits
 	lassign [set ${param}lim] minval increment maxval
+	puts "Running tests: varying $param from $minval to $maxval with increment $increment"
 	
 	# run simulation varying a single parameter. Also be careful not to go over the maximum tag count.
-	for {set val $minval} {($val <= $maxval) && ($config(gridx)*$config(gridy)<=$maxtags)} {incr val $increment} {
-		# update parameters
-		set config($param) $val
+	for {set val $minval; set config($param) $val} {($val <= $maxval) && ($config(gridx)*$config(gridy)<=$maxtags)} {incr val $increment; set config($param) $val} {
 		# run simulation
 		simulate $config(tagsize) [expr {$config(gridx)*$config(gridy)}] [list $config(gridx) $config(gridy)]
 	}
 	
 	puts "SCORES: [array get scorelist]"
 	# find the configuration with the lowest score
-	set lowestscore [lindex [lsort [array names scorelist]] 0]
+	set lowestscore [lindex [lsort -real [array names scorelist]] 0]
 	puts $lowestscore
 	array set config $scorelist($lowestscore)
 	
