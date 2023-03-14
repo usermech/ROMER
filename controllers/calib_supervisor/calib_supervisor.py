@@ -12,7 +12,7 @@ import yaml
 supervisor = Supervisor()
 
 SQUARE_SIZE = 1.25e-2 #cm
-CALIB_NUM = 40
+CALIB_NUM = 80
 
 # get the time step of the current world.
 timestep = int(supervisor.getBasicTimeStep())
@@ -82,16 +82,16 @@ while supervisor.step(timestep) != -1:
             if i == len(offset):
                 i = 0
             # create a random float between -0.2 and 0.2           
-            chessboard.getField('rotation').setSFRotation([1,np.random.uniform(-0.15, 0.15),np.random.uniform(-0.3, 0.3),-np.pi])
+            chessboard.getField('rotation').setSFRotation([1,np.random.uniform(-0.2, 0.2),np.random.uniform(-0.3, 0.3),-np.pi])
 
         objpoints.append(objp)   # Certainly, every loop objp is the same, in 3D.
         corners2 = cv2.cornerSubPix(gray,corners,(11,11),(-1,-1),criteria)
         imgpoints.append(corners2)
 
         # Draw and display the corners
-        img = cv2.drawChessboardCorners(img, (9,6), corners2, ret)
-        cv2.imshow('img',img)
-        cv2.waitKey(10)
+        # img = cv2.drawChessboardCorners(img, (9,6), corners2, ret)
+        # cv2.imshow('img',img)
+        # cv2.waitKey(10)
         num += 1
     # Read the sensors:
     # Enter here functions to read sensor data, like:

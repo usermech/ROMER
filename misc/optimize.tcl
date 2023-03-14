@@ -1,7 +1,7 @@
 # bgexec.tcl from http://chiselapp.com/user/MHo/repository/tcl-modules/dir?ci=6fca3679027cf4fb6340680f4bdad1649aec88e8&name=bgexec
 source ./bgexec.tcl
 
-set webotspath REPLACE_WITH_WEBOTS_PATH
+set webotspath D:/Webots/msys64/mingw64/bin/webotsw.exe
 # initial parameters. tagcount is gridx*gridy.
 array set config {
 	gridx 4
