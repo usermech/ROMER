@@ -91,7 +91,7 @@ camera_inv = np.linalg.inv(matrix_coefficient)
 step = 0 
 robot_translation_field.setSFVec3f([grid[step,0], grid[step,1], 0.01])
 #robot_rotation_field.setSFRotation([0,0,1,0.3])
-robot_rotation_field.setSFRotation([0,0,1,0.3])
+robot_rotation_field.setSFRotation([0,0,1,0.6])
 init = True 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
@@ -126,8 +126,11 @@ while supervisor.step(timestep) != -1:
             A = A[1:,:]
             # x y cos(theta) sin(theta)
             res = np.linalg.lstsq(A,3.04*b,rcond=None)
-            # acos and asin give slightly different results, so to get one param I do atan2. Normalizing the two angles to a unit magnitude and then doing this would be healthier.
-            position_est = np.array([[res[0][0][0]*res[0][2][0]-res[0][1][0]*res[0][3][0], res[0][0][0]*res[0][3][0]+res[0][1][0]*res[0][2][0], np.arctan2(res[0][3][0], res[0][2][0])]])
+            # normalize sin(theta) and cos(theta) to unit magnitude to fix any inconsistencies between the two variables.
+            costheta=np.sqrt(res[0][2][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
+            sintheta=np.sqrt(res[0][3][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
+            # rotate x and y by theta for some reason?????
+            position_est = np.array([[res[0][0][0]*costheta-res[0][1][0]*sintheta, res[0][0][0]*sintheta+res[0][1][0]*costheta, np.arctan2(sintheta, costheta)]])
             print(f"Estimated position: {position_est}")
             print(f"Real position: {robot_node.getField('translation').getSFVec3f()[:2]}")
             position_error = np.linalg.norm(robot_node.getField('translation').getSFVec3f()[:2]-position_est[:,:2])
