@@ -91,7 +91,7 @@ camera_inv = np.linalg.inv(matrix_coefficient)
 step = 0 
 robot_translation_field.setSFVec3f([grid[step,0], grid[step,1], 0.01])
 #robot_rotation_field.setSFRotation([0,0,1,0.3])
-robot_rotation_field.setSFRotation([0,0,1,0.6])
+robot_rotation_field.setSFRotation([0,0,1,-0.6])
 init = True 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
@@ -127,12 +127,12 @@ while supervisor.step(timestep) != -1:
             # x y cos(theta) sin(theta)
             res = np.linalg.lstsq(A,3.04*b,rcond=None)
             # normalize sin(theta) and cos(theta) to unit magnitude to fix any inconsistencies between the two variables.
-            costheta=np.sqrt(res[0][2][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
-            sintheta=np.sqrt(res[0][3][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
+            costheta=np.sign(res[0][2])*np.sqrt(res[0][2][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
+            sintheta=np.sign(res[0][3])*np.sqrt(res[0][3][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
             # rotate x and y by theta for some reason?????
-            position_est = np.array([[res[0][0][0]*costheta-res[0][1][0]*sintheta, res[0][0][0]*sintheta+res[0][1][0]*costheta, np.arctan2(sintheta, costheta)]])
-            print(f"Estimated position: {position_est}")
-            print(f"Real position: {robot_node.getField('translation').getSFVec3f()[:2]}")
+            position_est = np.array([[res[0][0][0]*costheta[0]-res[0][1][0]*sintheta[0], res[0][0][0]*sintheta[0]+res[0][1][0]*costheta[0], np.arctan2(sintheta[0], costheta[0])]])
+            # print(f"Estimated position: {position_est}")
+            # print(f"Real position: {robot_node.getField('translation').getSFVec3f()[:2]}")
             position_error = np.linalg.norm(robot_node.getField('translation').getSFVec3f()[:2]-position_est[:,:2])
             tag_errors.append([position_error, 0])
         else:        
@@ -163,4 +163,3 @@ with open('grid_errors.csv', 'w', newline='') as f:
     csvw.writerows(grid_errors)
 #    for i in grid_errors:
 #        f.write(f"{i} \n")
-
