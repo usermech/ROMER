@@ -26,7 +26,7 @@ Assuming a pinhole camera model, the projection equation describes where a 3D po
 
 The equation, in its bare form is as follows:
 
-c$$
+$$
 \tilde{p} = K {}^C\!\tilde{P}
 $$
 
@@ -40,19 +40,25 @@ $$
 
 We can write this out in matrix form:
 
+$$
 \begin{pmatrix} u \\ v \\ w \end{pmatrix}=\begin{pmatrix} \alpha & 0 & u_0 & 0 \\ 0 & \alpha & v_0 & 0 \\ 0 & 0 & 1 & 0 \end{pmatrix}\begin{pmatrix} \cos{\theta} & \sin{\theta} & 0 & 
  -x \\ -\sin{\theta} & \cos{\theta} & 0 & -y \\ 0 & 0 & 1 & -0.25 \\ 0 & 0 & 0 & 1 \end{pmatrix}\begin{pmatrix} x_i \\ y_i \\ 3.3 \\ 1 \end{pmatrix}
+$$
 
-u,v,w are camera pixel coordinates (w is a scaling factor), &alpha; is the focal length in pixels (we assume square pixels, and f<sub>x</sub> = f<sub>y</sub>), u<sub>0</sub> and v<sub>0</sub> are pixel coordinate offsets. 0.25 is the height of the camera. x<sub>i</sub>, y<sub>i</sub> are the x, y coordinates of the center of the marker with id i. Since the ceiling is approximately 3.3 meters above, we use that as the marker z coordinate.
+u, v, w are camera pixel coordinates (w is a scaling factor), &alpha; is the focal length in pixels (we assume square pixels, and f<sub>x</sub> = f<sub>y</sub>), u<sub>0</sub> and v<sub>0</sub> are pixel coordinate offsets. 0.25 is the height of the camera. x<sub>i</sub>, y<sub>i</sub> are the x, y coordinates of the center of the marker with id i. Since the ceiling is approximately 3.3 meters above, we use that as the marker z coordinate.
 
 We can remove some of the rows and columns of the matrices:
 
+$$
 \begin{pmatrix} u \\ v \\ w \end{pmatrix}=\begin{pmatrix} \alpha & 0 & u_0 \\ 0 & \alpha & v_0 \\ 0 & 0 & 1 \end{pmatrix}\begin{pmatrix} \cos{\theta} & \sin{\theta} & 0 & 
  -x \\ -\sin{\theta} & \cos{\theta} & 0 & -y \\ 0 & 0 & 1 & -0.25\end{pmatrix}\begin{pmatrix} x_i \\ y_i \\ 3.3 \\ 1 \end{pmatrix}
+$$
 
 Multiplying ${}^C\!T_W$ and ${}^W\!P$ we obtain ${}^C\!\tilde{P}$:
 
+$$
 \begin{pmatrix} u \\ v \\ w \end{pmatrix}=\begin{pmatrix} \alpha & 0 & u_0 \\ 0 & \alpha & v_0 \\ 0 & 0 & 1 \end{pmatrix}\begin{pmatrix} x_i cos(\theta) + y_i sin(\theta) -x  \\ -x_i sin(\theta) + y_i cos(\theta) -y \\ 3.3-0.25 \end{pmatrix}
+$$
 
 If we multiply this with K, we get an expression that is hard to factorize and express in the form Ax=b. If we instead multiply each side with K<sup>-1</sup> we obtain:
 
@@ -85,8 +91,7 @@ Since we have cos(&theta;) and sin(&theta;) as two separate unknowns, we need to
 
 $$
 sin(\theta')=sign(sin(\theta))\cdot\sqrt{\dfrac{sin^2(\theta)}{sin^2(\theta)+cos^2(\theta)}}
-$$
-$$
+\\
 cos(\theta')=sign(cos(\theta))\cdot\sqrt{\dfrac{cos^2(\theta)}{sin^2(\theta)+cos^2(\theta)}}
 $$
 
@@ -94,5 +99,6 @@ Then we use `atan2` to obtain the final &theta; value.
 
 We also found out that the x and y values we obtain from our solution are not rotated according to &theta; (they are in the camera frame) so we do a final rotation to obtain our robot position:
 
+$$
 \begin{pmatrix} x' \\ y' \end{pmatrix}=\begin{pmatrix} \cos{\theta'} & -\sin{\theta'} \\ \sin{\theta'} & \cos{\theta'} \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix}
-
+$$
