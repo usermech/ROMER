@@ -68,6 +68,7 @@ timestep = int(supervisor.getBasicTimeStep())
 
 robot_node = supervisor.getFromDef('TESTCAM')
 robot_translation_field = robot_node.getField('translation')
+robot_rotation_field = robot_node.getField('rotation')
 camera = supervisor.getDevice('camera')
 camera.enable(timestep)
 
@@ -89,6 +90,8 @@ camera_inv = np.linalg.inv(matrix_coefficient)
 
 step = 0 
 robot_translation_field.setSFVec3f([grid[step,0], grid[step,1], 0.01])
+#robot_rotation_field.setSFRotation([0,0,1,0.3])
+robot_rotation_field.setSFRotation([0,0,1,0.3])
 init = True 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
@@ -114,16 +117,20 @@ while supervisor.step(timestep) != -1:
                 xm = tag_coords[ids[i],0][0]
                 ym = tag_coords[ids[i],1][0]
                 A = np.append(A,np.array([[-1,0,xm,ym],[0,1,-ym,xm]]),axis=0)
+                # tried using inverse of transform, didn't work.
+                #A = np.append(A,np.array([[-1,0,xm,ym],[0,-1,ym,-xm]]),axis=0)
                 x,y = np.mean(corners[i][0], axis=0)
                 v = np.matmul(camera_inv,np.array([[y],[x],[1]]))
                 b = np.append(b,v[:2,:],axis=0)
             b = b[1:,:]
             A = A[1:,:]
-            res = np.linalg.lstsq(A,3.048*b,rcond=None)
-            position_est = np.array([[res[0][0][0],res[0][1][0]]])    
+            # x y cos(theta) sin(theta)
+            res = np.linalg.lstsq(A,3.04*b,rcond=None)
+            # acos and asin give slightly different results, so to get one param I do atan2. Normalizing the two angles to a unit magnitude and then doing this would be healthier.
+            position_est = np.array([[res[0][0][0]*res[0][2][0]-res[0][1][0]*res[0][3][0], res[0][0][0]*res[0][3][0]+res[0][1][0]*res[0][2][0], np.arctan2(res[0][3][0], res[0][2][0])]])
             print(f"Estimated position: {position_est}")
             print(f"Real position: {robot_node.getField('translation').getSFVec3f()[:2]}")
-            position_error = np.linalg.norm(robot_node.getField('translation').getSFVec3f()[:2]-position_est)
+            position_error = np.linalg.norm(robot_node.getField('translation').getSFVec3f()[:2]-position_est[:,:2])
             tag_errors.append([position_error, 0])
         else:        
             for i,id in enumerate(ids):
