@@ -10,11 +10,12 @@ from itertools import product
 import yaml
 import csv
 import ast
-
+import matplotlib.pyplot as plt
 
 XLIM = [-16.235, 5.435]
 YLIM = [-3.6625, 3.6625]
-GRID_NUM = 100
+
+
 
 ARUCO_DICT = {
 	"DICT_4X4_50": cv2.aruco.DICT_4X4_50,
@@ -34,15 +35,26 @@ ARUCO_DICT = {
 	"DICT_7X7_250": cv2.aruco.DICT_7X7_250,
 	"DICT_7X7_1000": cv2.aruco.DICT_7X7_1000,
 	"DICT_ARUCO_ORIGINAL": cv2.aruco.DICT_ARUCO_ORIGINAL}
-	
+
+with open('params.yaml') as f:
+    loadedparams = yaml.safe_load(f)
+
+GRID_SIZE = loadedparams.get('grid_size')
+ROTATION = loadedparams.get('rotation')
+# print data types of the loaded parameters
+print("GRID_SIZE: ", type(GRID_SIZE), GRID_SIZE)
+print("ROTATION: ", type(ROTATION), ROTATION)
+
 
 # find the ratio of the limits to each other
-inc = np.sqrt((XLIM[1] - XLIM[0]) * (YLIM[1] - YLIM[0])/GRID_NUM)
+inc = GRID_SIZE/100
+
 # create an array of the grid points starting from XLIM[0] increasing by inc not including XLIM[0]
 x = np.arange(XLIM[0], XLIM[1], inc)
 x = x + np.array([(XLIM[1]-x[-1])*0.5])
 y = np.arange(YLIM[0], YLIM[1], inc)
 y = y + np.array([(YLIM[1]-y[-1])*0.5])
+
 
 # load tag cooardinates from txt file
 with open('../../misc/tagcoords.txt', 'r') as f:
@@ -59,6 +71,12 @@ with open('../../misc/tagsettings.txt', 'r') as f:
 
 # create combinations of the grid points
 grid = np.array(list(product(x, y)))
+print(grid.shape)
+# write loadedparams to params.yaml
+with open('params.yaml', 'w') as f:
+    yaml.dump({"grid_size": GRID_SIZE, "rotation": ROTATION, "grid_num": grid.shape[0]}, f)
+
+    
 
 # create the Supervisor instance.
 supervisor = Supervisor()
@@ -91,7 +109,7 @@ camera_inv = np.linalg.inv(matrix_coefficient)
 step = 0 
 robot_translation_field.setSFVec3f([grid[step,0], grid[step,1], 0.01])
 #robot_rotation_field.setSFRotation([0,0,1,0.3])
-robot_rotation_field.setSFRotation([0,0,1,-0.6])
+robot_rotation_field.setSFRotation([0,0,1,ROTATION])
 init = True 
 # Main loop:
 # - perform simulation steps until Webots is stopping the controller
@@ -102,7 +120,7 @@ while supervisor.step(timestep) != -1:
     img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
     
 
-    cv2.imwrite(f"camera{step}.jpg",img)
+    # cv2.imwrite(f"camera{step}.jpg",img)
     
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     arucoParams = cv2.aruco.DetectorParameters_create()
@@ -125,7 +143,7 @@ while supervisor.step(timestep) != -1:
             b = b[1:,:]
             A = A[1:,:]
             # x y cos(theta) sin(theta)
-            res = np.linalg.lstsq(A,3.04*b,rcond=None)
+            res = np.linalg.lstsq(A,3.045*b,rcond=None)
             # normalize sin(theta) and cos(theta) to unit magnitude to fix any inconsistencies between the two variables.
             costheta=np.sign(res[0][2])*np.sqrt(res[0][2][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
             sintheta=np.sign(res[0][3])*np.sqrt(res[0][3][0]**2/(res[0][2][0]**2+res[0][3][0]**2))
