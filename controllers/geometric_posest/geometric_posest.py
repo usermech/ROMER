@@ -105,7 +105,6 @@ camera_inv = np.linalg.inv(matrix_coefficient)
 
 step = 0 
 robot_translation_field.setSFVec3f([grid[step,0], grid[step,1], 0.01])
-#robot_rotation_field.setSFRotation([0,0,1,0.3])
 robot_rotation_field.setSFRotation([0,0,1,ROTATION])
 init = True 
 # Main loop:
@@ -166,7 +165,7 @@ while supervisor.step(timestep) != -1:
         tag_errors.sort(key=lambda x: x[0])
         print(f"Estimation error is:{tag_errors[0]}")
     grid_errors.append(tag_errors)
-    if step == 107:
+    if step == grid.shape[0]-1:
         break
     step += 1
     robot_translation_field.setSFVec3f([grid[step,0], grid[step,1], 0.01])

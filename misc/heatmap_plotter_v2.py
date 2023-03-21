@@ -55,7 +55,7 @@ if not path.exists(f"./results/tag{args.size}"):
 	makedirs(f"./results/tag{args.size}")
 
 # read data
-with open("../controllers/heatmap_supervisor/grid_errors.csv") as f:
+with open("../controllers/geometric_posest/grid_errors.csv") as f:
     dat=[]
     csvreader=csv.reader(f)
     for row in csvreader:
