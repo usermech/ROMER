@@ -45,8 +45,6 @@ ROTATION = loadedparams.get('rotation')
 print("GRID_SIZE: ", type(GRID_SIZE), GRID_SIZE)
 print("ROTATION: ", type(ROTATION), ROTATION)
 
-
-# find the ratio of the limits to each other
 inc = GRID_SIZE/100
 
 # create an array of the grid points starting from XLIM[0] increasing by inc not including XLIM[0]
@@ -71,10 +69,9 @@ with open('../../misc/tagsettings.txt', 'r') as f:
 
 # create combinations of the grid points
 grid = np.array(list(product(x, y)))
-print(grid.shape)
 # write loadedparams to params.yaml
 with open('params.yaml', 'w') as f:
-    yaml.dump({"grid_size": GRID_SIZE, "rotation": ROTATION, "grid_num": grid.shape[0]}, f)
+    yaml.dump({"grid_size": GRID_SIZE, "rotation": ROTATION, "grid_x": len(x), "grid_y": len(y)}, f)
 
     
 
