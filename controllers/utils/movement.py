@@ -37,7 +37,7 @@ class Movement():
         self.movestates=Enum("Movement",["stop","forward","backward","left","right"])
         self.movestate=self.movestates.stop
 
-    def linmoveto(x, y, theta):
+    def linmoveto(self, x, y, theta):
         '''
         move in a straight line toward a given x, y, theta state.
         
@@ -49,7 +49,7 @@ class Movement():
         self.target=[x, y, theta]
         self.algostate=self.algostates.linear
 
-    def update(poseEstimate):
+    def update(self, poseEstimate):
         '''
         update states and motor signals
         '''
@@ -60,14 +60,14 @@ class Movement():
         # run movement update: this sets new motor velocities.
         self.moveupdate()
 
-    def algoupdate():
+    def algoupdate(self):
         if self.algostate==self.algostates.linear:
             self.linmoveupdate()
         else:
             # stop
             self.movestate=self.movestates.stop
         
-    def moveupdate():
+    def moveupdate(self):
         '''
         update motor signals according to movestate
         '''
@@ -88,7 +88,7 @@ class Movement():
             self.lm.setVelocity(0)
             self.rm.setVelocity(0)
 
-    def linmoveupdate():
+    def linmoveupdate(self):
         '''
         linear motion toward goal update
         '''
@@ -111,7 +111,7 @@ class Movement():
                 # if not, orient robot
                 self.rotateto(targetang)
 
-    def rotateto(theta):
+    def rotateto(self, theta):
         '''
         rotate to given angle.
 
