@@ -106,9 +106,13 @@ white = np.where(med_axis == 255)
 # create a list of vertices from the white pixels where x is white[0] and y is white[1] in numpy array form
 vertices = list(zip(white[0], white[1]))
 print(len(vertices))
-
-# print(f" whites are {white}")
+# save the medial axis points in a text file
+with open("med_axis.txt", "w") as f:
+    for vertex in vertices:        
+        f.write(str(vertex[1]) + ' ' + str(vertex[0]) + '\n')
 '''
+# print(f" whites are {white}")
+
 vertices = []
 for x in range(med_axis.shape[0]):
     for y in range(med_axis.shape[1]):
@@ -118,14 +122,13 @@ for x in range(med_axis.shape[0]):
             print(neighbors)
             if np.sum(neighbors == 255) > 4:
                 vertices.append((x, y))
-                '''
+                
 # vertices,cont = find_medial_axis_vertices(med_axis)
 #print(f"vertices is {vertices}")
 # plan a path through the medial axis
 #path = plan_path(vertices, img)
 detected_walls = cast_rays(img_copy, vertices) 
 print(f"number of detected walls are {len(detected_walls)}")  
-'''
 dw = []
 v = []
 for i in range(len(detected_walls)):
@@ -139,7 +142,6 @@ for i in range(len(detected_walls)):
         dw.append(detected_walls[i])
         v.append(vertices[i])
 result = v
-'''
 result,pts = is_unique_point(detected_walls,vertices)
 # create a black image with the same dimensions as the original image
 end = np.zeros(img.shape, dtype=np.uint8)
@@ -152,7 +154,7 @@ cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 cv2.imwrite("end.png",end)
-'''
+
 # display the results
 fig, axes = plt.subplots(1, 2, figsize=(8, 4)) 
 axes[0].imshow(img, cmap='gray')
