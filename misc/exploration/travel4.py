@@ -1,6 +1,7 @@
 import pickle
 import networkx as nx
 import math
+import numpy as np
 
 class NavChoice():
     
@@ -32,16 +33,36 @@ class NavChoice():
         costs=[]
         
         for waypoint in self.tovisit:
-            print(f"from {self.current} to {waypoint}")
-            path=nx.astar_path(graph, self.current, waypoint, heuristic=distance)
-            
-            # convert into floats
-            path=[(float(i[0]),float(i[1])) for i in path]
-            
-            # find how long the path is
-            dist=0
-            for i in range(len(path)-1):
-                dist+=distance(path[i], path[i+1])
+            #print(f"from {self.current} to {waypoint}")
+            # check cache - does astar path already exist?
+            if str(self.current)+str(waypoint) in cache:
+                # we have this exact computation
+                cachelabel=str(self.current)+str(waypoint)
+                path=cache[cachelabel]["path"]
+                dist=cache[cachelabel]["dist"]
+            elif str(waypoint)+str(self.current) in cache:
+                # we have the inverse of this computation
+                cachelabel=str(waypoint)+str(self.current)
+                path=cache[cachelabel]["path"]
+                # reverse list
+                path=[path[i] for i in range(len(path)-1, -1, -1)]
+                dist=cache[cachelabel]["dist"]
+            else:
+                path=nx.astar_path(graph, self.current, waypoint, heuristic=distance)
+                
+                # convert into floats
+                path=[(float(i[0]),float(i[1])) for i in path]
+                
+                # find how long the path is
+                dist=0
+                for i in range(len(path)-1):
+                    dist+=distance(path[i], path[i+1])
+
+                # save result to cache.
+                cachelabel=str(self.current)+str(waypoint)
+                cache[cachelabel]={}
+                cache[cachelabel]["path"]=path
+                cache[cachelabel]["dist"]=dist
             
             wpchoice=NavChoice(waypoint,
                                [i for i in self.tovisit if i != waypoint],
@@ -58,8 +79,9 @@ def distance(p1,p2):
     '''
     L2 norm
     '''
-    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
-    #return np.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
+    #return np.linalg.norm(np.array(p2)-np.array(p1))
+    #return math.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
+    return np.sqrt((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2)
 
 '''
 def exploreopts(graph, pathdict):
@@ -138,6 +160,9 @@ plt.imshow(img)
 nodecoords={i:i for i in graph.nodes()}
 nx.draw(graph, nodecoords)
 #'''
+
+# to cache results of each astar operation.
+cache={}
 
 # do a djikstra search to find the order in which to visit the waypoints
 navtree=NavChoice(startingpoint, waypoints[:-1], [], 0, [])
