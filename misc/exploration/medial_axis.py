@@ -4,7 +4,8 @@ import cv2
 import matplotlib.pyplot as plt
 from scipy.spatial.distance import cdist
 import networkx as nx
-
+import sknw
+import pickle
 
 def medial_axis(img):
     # invert the image to treat the free space as foreground
@@ -91,6 +92,27 @@ def is_unique_point(lst,vertex):
     print(f"number of detected walls are {len(res_point)}")
     return res, points
 
+def skeleton_image_to_graph(skeIm, connectivity=2):
+    assert(len(skeIm.shape) == 2)
+    skeImPos = np.stack(np.where(skeIm))
+    skeImPosIm = np.zeros_like(skeIm, dtype=np.int)
+    skeImPosIm[skeImPos[0], skeImPos[1]] = np.arange(0, skeImPos.shape[1])
+    g = nx.Graph()
+    if connectivity == 1:
+        neigh = np.array([[0, 1], [0, -1], [1, 0], [-1, 0]])
+    elif connectivity == 2:
+        neigh = np.array([[0, 1], [0, -1], [1, 0], [-1, 0], [1, 1], [1, -1], [-1, 1], [-1, -1]])
+    else:
+        raise ValueError(f'unsupported connectivity {connectivity}')
+    for idx in range(skeImPos[0].shape[0]):
+        for neighIdx in range(neigh.shape[0]):
+            curNeighPos = skeImPos[:, idx] + neigh[neighIdx]
+            if np.any(curNeighPos<0) or np.any(curNeighPos>=skeIm.shape):
+                continue
+            if skeIm[curNeighPos[0], curNeighPos[1]] > 0:
+                g.add_edge(skeImPosIm[skeImPos[0, idx], skeImPos[1, idx]], skeImPosIm[curNeighPos[0], curNeighPos[1]], weight=np.linalg.norm(neigh[neighIdx]))
+    g.graph['physicalPos'] = skeImPos.T
+    return g
 
 
 img = cv2.imread("map_framed.png")
@@ -100,16 +122,37 @@ img_copy = img.copy()
 # make grayscale image binary
 
 # compute the medial axis of the free space
-med_axis = medial_axis(img)
+med_axis = medial_axis(img.transpose())
 # find the white pixels in the medial axis image
 white = np.where(med_axis == 255)
 # create a list of vertices from the white pixels where x is white[0] and y is white[1] in numpy array form
 vertices = list(zip(white[0], white[1]))
 print(len(vertices))
+
+# construct a networkx graph out of the skeletonized image
+graph=sknw.build_sknw(med_axis)
+# convert the node names into the node coordinates.
+labelmapping={i:tuple(node["o"]) for i, node in graph.nodes(True)}
+nx.relabel_nodes(graph, labelmapping, copy=False)
+print(graph)
+
+# visualize the graph
+#plt.imshow(med_axis)
+plt.imshow(img)
+
+nodecoords={i:i for i in graph.nodes()}
+nx.draw(graph, nodecoords)
+
+# save the graph
+with open("roadmap.pickle", "wb") as f:
+    pickle.dump(graph, f)
+
+'''
 # save the medial axis points in a text file
 with open("med_axis.txt", "w") as f:
     for vertex in vertices:        
         f.write(str(vertex[1]) + ' ' + str(vertex[0]) + '\n')
+'''
 '''
 # print(f" whites are {white}")
 
