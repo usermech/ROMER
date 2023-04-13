@@ -178,6 +178,12 @@ while True:
         break
     # sort by distance
     pending.sort(key=lambda x: x[1])
+    # cull the last 10% of the list (they probably aren't the right choice anyway)
+    # this parameter can be increased to get better results. 100 (cull 1%) finds a shorter path, but takes a few seconds to find it.
+    todel=len(pending)//10
+    if todel:
+        del pending[-todel:]
+        #print(f"deleted {todel} elements")
     # get the object for the lowest cost option
     toexplore=getpathdict(navtree, pending.pop(0)[0])
 
